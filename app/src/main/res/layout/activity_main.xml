@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,5 +8,54 @@
     tools:context="edu.orangecoastcollege.cs273.rmillett.paintestimator.MainActivity">
 
 
+    <TextView
+        android:id="@+id/appNameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_centerHorizontal="true"
+        android:textSize="50sp"
+        android:text="@string/app_name" />
 
-</android.support.constraint.ConstraintLayout>
+    <TextView
+        android:id="@+id/instructionsTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/appNameTextView"
+        android:layout_weight="1"
+        android:textSize="25sp"
+        android:layout_centerHorizontal="true"
+        android:text="@string/enter_dimensions" />
+
+    <TextView
+        android:id="@+id/lengthlTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/length"
+        android:layout_marginTop="83dp"
+        android:layout_below="@+id/instructionsTextView"
+        android:layout_toLeftOf="@+id/appNameTextView"
+        android:layout_toStartOf="@+id/appNameTextView" />
+
+    <EditText
+        android:id="@+id/lengthEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/lengthlTextView"
+        android:layout_alignEnd="@+id/instructionsTextView"
+        android:layout_alignRight="@+id/instructionsTextView"
+        android:layout_marginEnd="34dp"
+        android:layout_marginRight="34dp"
+        android:ems="10"
+        android:inputType="numberDecimal" />
+
+    <TextView
+        android:id="@+id/widthTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/lengthlTextView"
+        android:layout_alignStart="@+id/lengthlTextView"
+        android:layout_below="@+id/lengthlTextView"
+        android:layout_marginTop="41dp"
+        android:text="@string/width" />
+</RelativeLayout>
