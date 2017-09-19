@@ -1,5 +1,6 @@
 package edu.orangecoastcollege.cs273.rmillett.paintestimator;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -73,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
         loadSharedPreferences();
     }
 
+    // TODO: link this to XML...
     protected void computeGallons(View v) {
         // Update MODEL first, then calculate
         mRoom.setLength(Float.parseFloat(mLengthEditText.getText().toString()));
@@ -81,9 +83,20 @@ public class MainActivity extends AppCompatActivity {
         // TODO: finish...
 
         // NOW do calculations
-        mGallonsTextView.setText(String.valueOf(mRoom.gallonsOfPaintRequired()));
+        // TODO: make this prettier...
+        mGallonsTextView.setText(getString(R.string.interior_surface_area_text)
+        + mRoom.totalSurfaceArea() + "\n" + getString(R.string.gallons_needed_text)
+        + mRoom.gallonsOfPaintRequired());
         saveSharedPreferences();
+    }
 
+    // TODO: link this to XML...
+    protected void goToHelp(View v) {
+        // Construct and EXPLICIT Intent to go to HelpActivity
+        // Intent: specify where to start (context) and where to go (next Activity)
+        Intent helpIntent = new Intent(this, HelpActivity.class);
+        helpIntent.putExtra("gallons", mRoom.gallonsOfPaintRequired());
+        startActivity(helpIntent);
     }
 
 
